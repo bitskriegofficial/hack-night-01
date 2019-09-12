@@ -3,12 +3,9 @@
 	<head>
 		<link rel="stylesheet" href="styles.css">
 
-		<style>
-		.LogoAnimation{width:350px}@media only screen and (max-width:760px){.LogoAnimation{width:100%}}.LogoAnimation .screen{-webkit-transition:all .85s ease-in-out;transition:all .85s ease-in-out;stroke-opacity:0;-webkit-transform:scale(2.25,1.33) rotate(0);transform:scale(2.25,1.33) rotate(0);stroke-width:5px}.LogoAnimation .background{fill:#282c34}.LogoAnimation .logoInner{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .85s ease-in-out;transition:all .85s ease-in-out;-webkit-transition-delay:50ms;transition-delay:50ms}.LogoAnimation.mobile2 .logoInner,.LogoAnimation.mobile .logoInner{-webkit-transform:scale(.4);transform:scale(.4)}.LogoAnimation.desktop .logoInner{-webkit-transform:scale(.5);transform:scale(.5)}.LogoAnimation.laptop .logoInner{-webkit-transform:scale(.35);transform:scale(.35)}.LogoAnimation.full .screen{stroke-opacity:0;-webkit-transform:scale(2.25,1.33) rotate(0);transform:scale(2.25,1.33) rotate(0);opacity:1;-webkit-transition:none;transition:none}.LogoAnimation.mobile .screen{stroke-opacity:1;-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0);opacity:1;stroke-width:5px}.LogoAnimation.desktop .screen{stroke-opacity:1;-webkit-transform:scale(1.125,1.1) rotate(-90deg);transform:scale(1.125,1.1) rotate(-90deg);opacity:1;stroke-width:8px}.LogoAnimation.laptop .screen{stroke-opacity:1;-webkit-transform:scale(.83) rotate(-90deg);transform:scale(.83) rotate(-90deg);opacity:1;stroke-width:5px}.LogoAnimation.mobile2 .screen{stroke-opacity:1;opacity:1;stroke-width:5px;-webkit-transform:scale(1) rotate(-180deg);transform:scale(1) rotate(-180deg)}.LogoAnimation.full2 .screen{stroke-opacity:0;-webkit-transform:scale(2.25,1.33) rotate(-180deg);transform:scale(2.25,1.33) rotate(-180deg)}.LogoAnimation:not(.mobile):not(.mobile2) .speaker{opacity:0;-webkit-transform:scaleX(0);transform:scaleX(0)}.LogoAnimation:not(.desktop) .stand,.LogoAnimation:not(.laptop) .base{-webkit-transform:scaleX(0);transform:scaleX(0)}.LogoAnimation .base,.LogoAnimation .speaker,.LogoAnimation .stand{-webkit-transition:all .85s ease-in-out;transition:all .85s ease-in-out}
-		</style>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<title>Web Development</title>
+		<title>Introduction To Web Security</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -32,6 +29,7 @@
 				<section>
 					<h2>Introduction to <br />Web Security</h2>
 					<p>- Mehul Mohan</p>
+					<p style="font-size: 20px;font-style: italic;">bit.ly/hack-night-01</p>
 				</section>
 
 				<section>
@@ -42,30 +40,30 @@
 				<section>
 					<h2>About Me</h2>
 					<ul>
-						<li>BITSkrieg coordinator</li>
-						<li>Google HoF (bughunter.withgoogle.com/rank/hof)</li>
-						<li>Microsoft HoF (June & July 2015 Security Researchers)</li>
-						<li>Sony HoF (secure.sony.net/hallofthanks)</li>
-						<li>ESET, Trend Micro, Gratipay, Automattic, etc.</li>
+						<li class="fragment">BITSkrieg coordinator</li>
+						<li class="fragment">Google HoF (bughunter.withgoogle.com/rank/hof)</li>
+						<li class="fragment">Microsoft HoF (June & July 2015 Security Researchers)</li>
+						<li class="fragment">Sony HoF (secure.sony.net/hallofthanks)</li>
+						<li class="fragment">ESET, Trend Micro, Gratipay, Automattic, etc.</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Web Security 101</h2>
 					<ul>
-						<li>Involves Web</li>
-						<li>Involves technologies web uses</li>
-						<li>Involves security</li>
+						<li class="fragment">Involves Web</li>
+						<li class="fragment">Involves technologies web uses</li>
+						<li class="fragment">Involves security</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Goals for this talk</h2>
 					<ul>
-						<li>What is web</li>
-						<li>How Web works</li>
-						<li>Some common attack scenarios</li>
-						<li>Some simple questions</li>
+						<li class="fragment">What is web</li>
+						<li class="fragment">How Web works</li>
+						<li class="fragment">Some common attack scenarios</li>
+						<li class="fragment">Some simple questions</li>
 					</ul>
 				</section>
 
@@ -79,16 +77,16 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>*software*</td>
-								<td>*hardware*</td>
+								<td class="fragment">*software*</td>
+								<td class="fragment">*hardware*</td>
 							</tr>
 							<tr>
-								<td>web pages/web sites/web apps</td>
-								<td>web + VoIP + ssh + torrents + other P2P</td>
+								<td class="fragment">web pages/web sites/web apps</td>
+								<td class="fragment">web + VoIP + ssh + torrents + other P2P</td>
 							</tr>
 							<tr>
-								<td>Uses only HTTP(S) protocol</td>
-								<td>This. is. everything.</td>
+								<td class="fragment">Uses only HTTP(S) protocol</td>
+								<td class="fragment">This. is. everything.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -97,9 +95,9 @@
 				<section>
 					<h2>HTTP</h2>
 					<ul>
-						<li>Hypertext Transfer Protocol</li>
-						<li>Language of Web</li>
-						<li>Layer 7/Application protocol</li>
+						<li class="fragment">Hypertext Transfer Protocol</li>
+						<li class="fragment">Language of Web</li>
+						<li class="fragment">Layer 7/Application protocol</li>
 					</ul>
 				</section>
 
@@ -114,25 +112,25 @@
 				<section>
 					<h2>How HTTP works</h2>
 					<ul>
-						<li>Request-response model (over TCP/IP)</li>
-						<li>How about UDP?</li>
-						<li>UDP works on one-way model</li>
+						<li class="fragment">Request-response model (over TCP/IP)</li>
+						<li class="fragment">How about UDP?</li>
+						<li class="fragment">UDP works on one-way model</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Request-response model</h2>
-					<p>Time &lt;&lt; Data</p>
+					<p class="fragment">Time &lt;&lt; Data</p>
 				</section>
 
 				<section>
 					<h2>One-way model</h2>
-					<p>Time &gt;&gt; Data</p>
+					<p class="fragment">Time &gt;&gt; Data</p>
 				</section>
 
 				<section>
 					<h2>Simple HTTP request/response</h2>
-					<p>Netcat (nc) is a raw TCP/UDP client/server tool</p>
+					<p class="fragment">Netcat (nc) is a raw TCP/UDP client/server tool</p>
 				</section>
 
 				<section>
@@ -158,27 +156,27 @@ X-Header-3: Spaces are allowed! # Header 1
 				<section>
 					<h2>Slow Loris Demonstration</h2>
 					<ul>
-						<li>Denial of Service attack</li>
-						<li>Exhausts max connection limit of server</li>
-						<li>Bring down servers with just one machine for fun!</li>
+						<li class="fragment">Denial of Service attack</li>
+						<li class="fragment">Exhausts max connection limit of server</li>
+						<li class="fragment">Bring down servers with just one machine for fun!</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>HTTP is stateless</h2>
 					<ul>
-						<li>It is stateless - doesn't remember past</li>
-						<li>Need to pass "stateful" data to-and-fro</li>
-						<li>Achieved through HTTP headers</li>
+						<li class="fragment">It is stateless - doesn't remember past</li>
+						<li class="fragment">Need to pass "stateful" data to-and-fro</li>
+						<li class="fragment">Achieved through HTTP headers</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>HTTP Headers</h2>
 					<ul>
-						<li>Way for client/server to share additional data</li>
-						<li>Some common headers for statefulness:</li>
-						<li>Cookie, User-Agent, Authorization and custom tokens</li>
+						<li class="fragment">Way for client/server to share additional data</li>
+						<li class="fragment">Some common headers for statefulness:</li>
+						<li class="fragment">Cookie, User-Agent, Authorization and custom tokens</li>
 					</ul>
 				</section>
 
@@ -196,24 +194,24 @@ X-Header-3: Spaces are allowed! # Header 1
 						</thead>
 						<tbody>
 							<tr>
-								<td>Actual exploits</td>
-								<td>Planted exploits</td>
+								<td class="fragment">Actual exploits</td>
+								<td class="fragment">Planted exploits</td>
 							</tr>
 							<tr>
-								<td>Involves user data/user security</td>
-								<td>Need to break in and get flag</td>
+								<td class="fragment">Involves user data/user security</td>
+								<td class="fragment">Need to break in and get flag</td>
 							</tr>
 							<tr>
-								<td>Hard-Very Hard</td>
-								<td>Easy-Hard</td>
+								<td class="fragment">Hard-Very Hard</td>
+								<td class="fragment">Easy-Hard</td>
 							</tr>
 							<tr>
-								<td>$$$$$$</td>
-								<td>$$</td>
+								<td class="fragment">$$$$$$</td>
+								<td class="fragment">$$</td>
 							</tr>
 							<tr>
-								<td>Not the best way to start</td>
-								<td>Great way to start</td>
+								<td class="fragment">Not the best way to start</td>
+								<td class="fragment">Great way to start</td>
 							</tr>
 						</tbody>
 					</table>
@@ -222,26 +220,26 @@ X-Header-3: Spaces are allowed! # Header 1
 				<section>
 					<h2>Cookie</h2>
 					<ul>
-						<li>A piece of information to uniquely identify a client after authentication</li>
-						<li>Possible exploit - predicatable cookies for users/non-expiring cookies/any other crazy idea depending on implementation</li>
+						<li class="fragment">A piece of information to uniquely identify a client after authentication</li>
+						<li class="fragment">Possible exploit - predicatable cookies for users/non-expiring cookies/any other crazy idea depending on implementation</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>User-Agent</h2>
 					<ul>
-						<li>Includes information about your browser, browser version, OS and OS version.</li>
+						<li class="fragment">Includes information about your browser, browser version, OS and OS version.</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Common places to look for flags/clues</h2>
-					<p>Cookie</p>
-					<p>User-agent</p>
-					<p>HTTP Method</p>
-					<p>robots.txt</p>
-					<p>Source code</p>
-					<p>...custom application exploits</p>
+					<p class="fragment">Cookie</p>
+					<p class="fragment">User-agent</p>
+					<p class="fragment">HTTP Method</p>
+					<p class="fragment">robots.txt</p>
+					<p class="fragment">Source code</p>
+					<p class="fragment">...custom application exploits</p>
 				</section>
 
 				<section>
