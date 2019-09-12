@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" href="styles.css">
+
+		<style>
+		.LogoAnimation{width:350px}@media only screen and (max-width:760px){.LogoAnimation{width:100%}}.LogoAnimation .screen{-webkit-transition:all .85s ease-in-out;transition:all .85s ease-in-out;stroke-opacity:0;-webkit-transform:scale(2.25,1.33) rotate(0);transform:scale(2.25,1.33) rotate(0);stroke-width:5px}.LogoAnimation .background{fill:#282c34}.LogoAnimation .logoInner{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:all .85s ease-in-out;transition:all .85s ease-in-out;-webkit-transition-delay:50ms;transition-delay:50ms}.LogoAnimation.mobile2 .logoInner,.LogoAnimation.mobile .logoInner{-webkit-transform:scale(.4);transform:scale(.4)}.LogoAnimation.desktop .logoInner{-webkit-transform:scale(.5);transform:scale(.5)}.LogoAnimation.laptop .logoInner{-webkit-transform:scale(.35);transform:scale(.35)}.LogoAnimation.full .screen{stroke-opacity:0;-webkit-transform:scale(2.25,1.33) rotate(0);transform:scale(2.25,1.33) rotate(0);opacity:1;-webkit-transition:none;transition:none}.LogoAnimation.mobile .screen{stroke-opacity:1;-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0);opacity:1;stroke-width:5px}.LogoAnimation.desktop .screen{stroke-opacity:1;-webkit-transform:scale(1.125,1.1) rotate(-90deg);transform:scale(1.125,1.1) rotate(-90deg);opacity:1;stroke-width:8px}.LogoAnimation.laptop .screen{stroke-opacity:1;-webkit-transform:scale(.83) rotate(-90deg);transform:scale(.83) rotate(-90deg);opacity:1;stroke-width:5px}.LogoAnimation.mobile2 .screen{stroke-opacity:1;opacity:1;stroke-width:5px;-webkit-transform:scale(1) rotate(-180deg);transform:scale(1) rotate(-180deg)}.LogoAnimation.full2 .screen{stroke-opacity:0;-webkit-transform:scale(2.25,1.33) rotate(-180deg);transform:scale(2.25,1.33) rotate(-180deg)}.LogoAnimation:not(.mobile):not(.mobile2) .speaker{opacity:0;-webkit-transform:scaleX(0);transform:scaleX(0)}.LogoAnimation:not(.desktop) .stand,.LogoAnimation:not(.laptop) .base{-webkit-transform:scaleX(0);transform:scaleX(0)}.LogoAnimation .base,.LogoAnimation .speaker,.LogoAnimation .stand{-webkit-transition:all .85s ease-in-out;transition:all .85s ease-in-out}
+		</style>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Web Development</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Introduction to <br />Web Security</h2>
+					<p>- Mehul Mohan</p>
+				</section>
+
+				<section>
+					<h2>Disclaimer</h2>
+					<p>Do not try to do any attack discussed in this, or any subsequent lecture on any publicly/privately running service unless you have written permission from the organization. I'm not responsible for anything you do.</p>
+				</section>
+
+				<section>
+					<h2>About Me</h2>
+					<ul>
+						<li>BITSkrieg coordinator</li>
+						<li>Google HoF (bughunter.withgoogle.com/rank/hof)</li>
+						<li>Microsoft HoF (June & July 2015 Security Researchers)</li>
+						<li>Sony HoF (secure.sony.net/hallofthanks)</li>
+						<li>ESET, Trend Micro, Gratipay, Automattic, etc.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Web Security 101</h2>
+					<ul>
+						<li>Involves Web</li>
+						<li>Involves technologies web uses</li>
+						<li>Involves security</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Goals for this talk</h2>
+					<ul>
+						<li>What is web</li>
+						<li>How Web works</li>
+						<li>Some common attack scenarios</li>
+						<li>Some simple questions</li>
+					</ul>
+				</section>
+
+				<section>
+					<table class="reveal">
+						<thead>
+							<tr>
+								<th>Web</th>
+								<th>Internet</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>*software*</td>
+								<td>*hardware*</td>
+							</tr>
+							<tr>
+								<td>web pages/web sites/web apps</td>
+								<td>web + VoIP + ssh + torrents + other P2P</td>
+							</tr>
+							<tr>
+								<td>Uses only HTTP(S) protocol</td>
+								<td>This. is. everything.</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>HTTP</h2>
+					<ul>
+						<li>Hypertext Transfer Protocol</li>
+						<li>Language of Web</li>
+						<li>Layer 7/Application protocol</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Open Systems Interconnection (OSI)<br /> Model</h2>
+				</section>
+
+				<section>
+					<img src="images/osi-model.jpeg" />
+				</section>
+
+				<section>
+					<h2>How HTTP works</h2>
+					<ul>
+						<li>Request-response model (over TCP/IP)</li>
+						<li>How about UDP?</li>
+						<li>UDP works on one-way model</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Request-response model</h2>
+					<p>Time &lt;&lt; Data</p>
+				</section>
+
+				<section>
+					<h2>One-way model</h2>
+					<p>Time &gt;&gt; Data</p>
+				</section>
+
+				<section>
+					<h2>Simple HTTP request/response</h2>
+					<p>Netcat (nc) is a raw TCP/UDP client/server tool</p>
+				</section>
+
+				<section>
+						<pre><code data-trim data-noescape data-line-numbers="1-5" class="bash">
+GET / HTTP/1.1 # Request line
+Host: 127.0.0.1 # Header 1
+X-Header-1: just-for-fun # Header 1
+X-Header-2: just-for-fun-again # Header 1
+X-Header-3: Spaces are allowed! # Header 1
+# empty line
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Request line</h2>
+					<ul>
+						<li>Request Method (HTTP/1.1): GET/POST/PUT/DELETE/OPTIONS/CONNECT/HEAD/TRACE</li>
+						<li>Request URI: Absolute/relative URI of the resource you want to apply the request to</li>
+						<li>HTTP Version: Version which the server should conform to</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Slow Loris Demonstration</h2>
+					<ul>
+						<li>Denial of Service attack</li>
+						<li>Exhausts max connection limit of server</li>
+						<li>Bring down servers with just one machine for fun!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>HTTP is stateless</h2>
+					<ul>
+						<li>It is stateless - doesn't remember past</li>
+						<li>Need to pass "stateful" data to-and-fro</li>
+						<li>Achieved through HTTP headers</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>HTTP Headers</h2>
+					<ul>
+						<li>Way for client/server to share additional data</li>
+						<li>Some common headers for statefulness:</li>
+						<li>Cookie, User-Agent, Authorization and custom tokens</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Real-life v/s CTFs</h2>
+				</section>
+
+				<section>
+					<table class="reveal">
+						<thead>
+							<tr>
+								<th>Real world</th>
+								<th>CTF</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Actual exploits</td>
+								<td>Planted exploits</td>
+							</tr>
+							<tr>
+								<td>Involves user data/user security</td>
+								<td>Need to break in and get flag</td>
+							</tr>
+							<tr>
+								<td>Hard-Very Hard</td>
+								<td>Easy-Hard</td>
+							</tr>
+							<tr>
+								<td>$$$$$$</td>
+								<td>$$</td>
+							</tr>
+							<tr>
+								<td>Not the best way to start</td>
+								<td>Great way to start</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Cookie</h2>
+					<ul>
+						<li>A piece of information to uniquely identify a client after authentication</li>
+						<li>Possible exploit - predicatable cookies for users/non-expiring cookies/any other crazy idea depending on implementation</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>User-Agent</h2>
+					<ul>
+						<li>Includes information about your browser, browser version, OS and OS version.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Common places to look for flags/clues</h2>
+					<p>Cookie</p>
+					<p>User-agent</p>
+					<p>HTTP Method</p>
+					<p>robots.txt</p>
+					<p>Source code</p>
+					<p>...custom application exploits</p>
+				</section>
+
+				<section>
+					<h2>CTF Questions</h2>
+				</section>
+
+				<section>
+					<img src="images/ctf-inspect.png" />
+					<p>http://2018shell.picoctf.com:28831</p>
+				</section>
+
+				<section>
+					<img src="images/ctf-button.png" />
+					<p>http://2018shell.picoctf.com:18342</p>
+				</section>
+
+				<section>
+					<img src="images/ctf-admin.png" />
+					<p>http://2018shell.picoctf.com:57252</p>
+				</section>
+
+				<section data-background="images/hack.jpg" data-background-size="contain">
+				</section>
+
+				<section>
+					<h2>Thanks for attending. Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+
+				transition: 'concave',
+				transitionSpeed: 'slow',
+
+				// Parallax background image
+	//parallaxBackgroundImage: "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg",
+
+// Parallax background size
+//parallaxBackgroundSize:  "2100px 900px", //- currently only pixels are supported (don't use % or auto)
+
+// Number of pixels to move the parallax background per slide
+// - Calculated automatically unless specified
+// - Set to 0 to disable movement along an axis
+//parallaxBackgroundHorizontal: 200,
+//parallaxBackgroundVertical: 50,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+				]
+			});
+
+			Reveal.addEventListener( 'ready', () => {
+				//Reveal.slide(100)
+			});
+
+			(new MutationObserver(function(mutations, observer) {
+				mutations.reduce(function(accumulator, current) {
+					return accumulator.concat(Array.prototype.slice.call(
+						current.addedNodes));
+				}, []).forEach(function(el) {
+					if(/video/i.test(el.tagName)) {
+						el.controls = true;
+					}
+				});
+			})).observe(document.body, {
+				childList: true,
+				subtree: true
+			});
+
+		</script>
+	</body>
+</html>
